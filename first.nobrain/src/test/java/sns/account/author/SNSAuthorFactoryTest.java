@@ -5,10 +5,10 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import sns.account.FacebookAccount;
-import sns.account.ISnsAccount;
-import sns.account.KakaoAccount;
-import sns.account.TwitterAccount;
+import sns.account.domain.FacebookAccount;
+import sns.account.domain.ISnsAccount;
+import sns.account.domain.KakaoAccount;
+import sns.account.domain.TwitterAccount;
 
 public class SNSAuthorFactoryTest extends TestCase {
 

@@ -1,6 +1,6 @@
 package sns.account.author;
 
-import sns.account.ISnsAccount;
+import sns.account.domain.ISnsAccount;
 
 public class FacebookAuthor implements ISnsAuthor {
 
