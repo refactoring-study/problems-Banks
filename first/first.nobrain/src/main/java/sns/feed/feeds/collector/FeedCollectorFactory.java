@@ -1,11 +1,23 @@
 package sns.feed.feeds.collector;
 
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+
 import sns.account.AccountTypeUtil;
 import sns.account.domain.ISnsAccount;
 import sns.exception.NotAuthorException;
+import sns.feed.feeds.domain.IFeed;
 
 
 public class FeedCollectorFactory {
+
+    private static final IFeedCollector NO_FEED_COLLECTOR = new IFeedCollector() {
+
+        public List<IFeed> getFeeds(ISnsAccount snsAccount, Date lastModifiedDate) {
+            return Collections.emptyList();
+        }
+    };
 
     public static IFeedCollector createFeedCollector(ISnsAccount snsAccount) throws NotAuthorException {
 
@@ -21,11 +33,14 @@ public class FeedCollectorFactory {
         case ACCOUNT_TYPE_FACEBOOK:
             feedCollector = new FacebookFeedCollector();
             break;
-        case ACCOUNT_TYPE_KAKAO:
+        case ACCOUNT_TYPE_GOPL:
+            feedCollector = new GoplFeedCollector();
             break;
         case ACCOUNT_TYPE_NO:
+            feedCollector = NO_FEED_COLLECTOR;
             break;
         case ACCOUNT_TYPE_TWITTER:
+            feedCollector = new TwitterTwitCollector();
             break;
         default:
             break;

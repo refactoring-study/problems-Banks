@@ -8,14 +8,14 @@ import sns.account.domain.TwitterAccount;
 public class AccountTypeUtil {
 
     public enum AccountType {
-        ACCOUNT_TYPE_FACEBOOK, ACCOUNT_TYPE_TWITTER, ACCOUNT_TYPE_KAKAO, ACCOUNT_TYPE_NO
+        ACCOUNT_TYPE_FACEBOOK, ACCOUNT_TYPE_TWITTER, ACCOUNT_TYPE_GOPL, ACCOUNT_TYPE_NO
     }
 
     public static AccountType getAccountType(ISnsAccount account) {
         if (account instanceof FacebookAccount) {
             return AccountType.ACCOUNT_TYPE_FACEBOOK;
         } else if (account instanceof GoplAccount) {
-            return AccountType.ACCOUNT_TYPE_KAKAO;
+            return AccountType.ACCOUNT_TYPE_GOPL;
         } else if (account instanceof TwitterAccount) {
             return AccountType.ACCOUNT_TYPE_TWITTER;
         } else {

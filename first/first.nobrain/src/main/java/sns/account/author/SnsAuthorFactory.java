@@ -24,7 +24,7 @@ public class SnsAuthorFactory {
         case ACCOUNT_TYPE_FACEBOOK:
             snsAuthor = new FacebookAuthor();
             break;
-        case ACCOUNT_TYPE_KAKAO:
+        case ACCOUNT_TYPE_GOPL:
             snsAuthor = new GoplAuthor();
             break;
         case ACCOUNT_TYPE_NO:
