@@ -7,6 +7,7 @@ import org.mockito.Mockito;
 
 import sns.account.domain.FacebookAccount;
 import sns.account.domain.ISnsAccount;
+import sns.exception.NotAuthorException;
 
 public class FeedCollectorFactoryTest extends TestCase {
 
@@ -14,12 +15,22 @@ public class FeedCollectorFactoryTest extends TestCase {
     public void testCreateFeedCollector() throws Exception {
 
         ISnsAccount account;
+        IFeedCollector feedCollector;
 
         {
             account = Mockito.mock(FacebookAccount.class);
-            Mockito.doReturn("facebook api key").when(account.getAPIKey());
+            try {
+                feedCollector = FeedCollectorFactory.createFeedCollector(account);
+                fail("비정상 피드 수집기임");
+            } catch (NotAuthorException e) {
 
-            FeedCollectorFactory.createFeedCollector(account);
+            }
+
+            Mockito.when(account.getAPIKey()).thenReturn("facebook api");
+            feedCollector = FeedCollectorFactory.createFeedCollector(account);
+
+            assertNotNull(feedCollector);
+            assertTrue(feedCollector instanceof FacebookFeedCollector);
         }
 
     }
