@@ -1,6 +1,6 @@
 package sns.account.domain;
 
-public class KakaoAccount implements ISnsAccount {
+public class GoplAccount implements ISnsAccount {
 
     private String apiKey;
     private String snsId;

@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 
 import sns.account.domain.FacebookAccount;
 import sns.account.domain.ISnsAccount;
-import sns.account.domain.KakaoAccount;
+import sns.account.domain.GoplAccount;
 import sns.account.domain.TwitterAccount;
 
 public class SNSAuthorFactoryTest extends TestCase {
@@ -28,13 +28,13 @@ public class SNSAuthorFactoryTest extends TestCase {
 
         {
             // Given : Kakao Account
-            ISnsAccount account = new KakaoAccount();
+            ISnsAccount account = new GoplAccount();
 
             // When : Create Author & Authorize
             ISnsAuthor snsAuthor = SnsAuthorFactory.createSnsAuthor(account);
 
             // Then : is Kakao Author
-            assertTrue(snsAuthor instanceof KakaoAuthor);
+            assertTrue(snsAuthor instanceof GoplAuthor);
         }
 
         {
