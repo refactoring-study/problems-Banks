@@ -1,4 +1,4 @@
-package sns.feed.feeds.collector;
+package sns.feed.collector;
 
 import junit.framework.TestCase;
 

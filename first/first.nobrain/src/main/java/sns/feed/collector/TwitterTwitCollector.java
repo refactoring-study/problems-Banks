@@ -8,7 +8,13 @@ import sns.feed.collector.feed.domain.IFeed;
 
 public class TwitterTwitCollector implements IFeedCollector {
 
-    public List<IFeed> getFeeds(ISnsAccount snsAccount, Date lastModifiedDate) {
+    private final ISnsAccount snsAccount;
+
+    public TwitterTwitCollector(ISnsAccount snsAccount) {
+        this.snsAccount = snsAccount;
+    }
+
+    public List<IFeed> getFeeds(Date lastModifiedDate) {
         return null;
     }
 

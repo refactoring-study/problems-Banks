@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import sns.account.AccountTypeUtil.AccountType;
 import sns.feed.collector.feed.domain.IFeed;
 
 public class FeedDatas {
@@ -24,20 +25,30 @@ public class FeedDatas {
         return instace;
     }
 
-    public void addAccount(IFeed snsAccount) {
-        feeds.add(snsAccount);
+    public void addFeeds(IFeed feed) {
+        feeds.add(feed);
     }
 
-    public void removeAccount(IFeed snsAccount) {
-        feeds.remove(snsAccount);
+    public void removeFeed(IFeed feed) {
+        feeds.remove(feed);
     }
 
     public IFeed get(int index) {
         return feeds.get(index);
     }
 
-    public List<IFeed> getAccounts() {
+    public List<IFeed> getFeeds(AccountType type) {
         return Collections.unmodifiableList(feeds);
+    }
+
+    public void release() {
+        synchronized (feeds) {
+            feeds.clear();
+        }
+
+        synchronized (instace) {
+            instace = null;
+        }
     }
 
 }

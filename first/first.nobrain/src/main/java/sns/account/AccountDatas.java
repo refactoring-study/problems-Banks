@@ -40,4 +40,14 @@ public class AccountDatas {
         return Collections.unmodifiableList(accounts);
     }
 
+    public void release() {
+        synchronized (accounts) {
+            accounts.clear();
+        }
+
+        synchronized (instace) {
+            instace = null;
+        }
+    }
+
 }

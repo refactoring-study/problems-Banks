@@ -12,6 +12,7 @@ public class FacebookFeed implements IFeed {
     private String category;
     private int likeCount;
     private Date created;
+    private Date modified;
     private String accountName;
     private String accountId;
 
@@ -79,6 +80,14 @@ public class FacebookFeed implements IFeed {
 
     public void setReplies(List<IFeedReply> replies) {
         this.replies = replies;
+    }
+
+    public Date getModified() {
+        return modified;
+    }
+
+    public void setModified(Date modified) {
+        this.modified = modified;
     }
 
 }

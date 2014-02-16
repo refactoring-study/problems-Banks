@@ -8,7 +8,13 @@ import sns.feed.collector.feed.domain.IFeed;
 
 public class GoplFeedCollector implements IFeedCollector {
 
-    public List<IFeed> getFeeds(ISnsAccount snsAccount, Date lastModifiedDate) {
+    private final ISnsAccount snsAccount;
+
+    public GoplFeedCollector(ISnsAccount snsAccount) {
+        this.snsAccount = snsAccount;
+    }
+
+    public List<IFeed> getFeeds(Date lastModifiedDate) {
         return null;
     }
 
