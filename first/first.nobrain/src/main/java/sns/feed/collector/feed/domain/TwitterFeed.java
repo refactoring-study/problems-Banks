@@ -10,7 +10,6 @@ public class TwitterFeed implements IFeed {
     private String id;
     private String message;
     private Date created;
-    private Date modified;
     private String accountName;
     private String accountId;
 
@@ -64,14 +63,6 @@ public class TwitterFeed implements IFeed {
 
     public List<IFeedReply> getReplies() {
         return Collections.emptyList();
-    }
-
-    public Date getModified() {
-        return modified;
-    }
-
-    public void setModified(Date modified) {
-        this.modified = modified;
     }
 
 }

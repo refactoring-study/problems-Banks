@@ -12,9 +12,8 @@ public interface IFeed {
     public String getCategory();
     public int getLikeCount();
     public Date getCreated();
-    public Date getModified();
     public String getAccountName();
     public String getAccountId();
-    public List<IFeedReply> getReplies();
+    public List<? extends IFeedReply> getReplies();
 
 }

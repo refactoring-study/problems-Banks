@@ -3,7 +3,7 @@ package sns.feed.collector.feed.domain;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.collector.reply.domain.IFeedReply;
+import sns.feed.collector.reply.domain.FacebookFeedReply;
 
 public class FacebookFeed implements IFeed {
 
@@ -12,11 +12,10 @@ public class FacebookFeed implements IFeed {
     private String category;
     private int likeCount;
     private Date created;
-    private Date modified;
     private String accountName;
     private String accountId;
 
-    private List<IFeedReply> replies;
+    private List<FacebookFeedReply> replies;
 
     public String getId() {
         return id;
@@ -74,20 +73,12 @@ public class FacebookFeed implements IFeed {
         this.accountId = accountId;
     }
 
-    public List<IFeedReply> getReplies() {
+    public List<FacebookFeedReply> getReplies() {
         return replies;
     }
 
-    public void setReplies(List<IFeedReply> replies) {
+    public void setReplies(List<FacebookFeedReply> replies) {
         this.replies = replies;
-    }
-
-    public Date getModified() {
-        return modified;
-    }
-
-    public void setModified(Date modified) {
-        this.modified = modified;
     }
 
 }
