@@ -1,9 +1,9 @@
-package sns.feed.feeds.domain;
+package sns.feed.collector.feed.domain;
 
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.reply.domain.IFeedReply;
+import sns.feed.collector.reply.domain.IFeedReply;
 
 public class FacebookFeed implements IFeed {
 

@@ -1,8 +1,8 @@
-package sns.feed.reply.domain;
+package sns.feed.collector.reply.domain;
 
 import java.util.Date;
 
-public class FacebookFeedReply implements IFeedReply {
+public class GoplFeedReply implements IFeedReply {
 
     private String id;
     private String feedId;

@@ -10,6 +10,9 @@ import sns.account.domain.GoplAccount;
 import sns.account.domain.ISnsAccount;
 import sns.account.domain.TwitterAccount;
 import sns.exception.NotAuthorException;
+import sns.feed.collector.FacebookFeedCollector;
+import sns.feed.collector.FeedCollectorFactory;
+import sns.feed.collector.IFeedCollector;
 
 public class FeedCollectorFactoryTest extends TestCase {
 

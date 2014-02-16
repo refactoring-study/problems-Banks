@@ -1,17 +1,21 @@
-package sns.feed.feeds.domain;
+package sns.feed.collector.feed.domain;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.reply.domain.IFeedReply;
+import sns.feed.collector.reply.domain.IFeedReply;
 
-public class TwitterFeed implements IFeed {
+public class GoplFeed implements IFeed {
+
     private String id;
     private String message;
+    private String category;
+    private int likeCount;
     private Date created;
     private String accountName;
     private String accountId;
+
+    private List<IFeedReply> replies;
 
     public String getId() {
         return id;
@@ -30,11 +34,19 @@ public class TwitterFeed implements IFeed {
     }
 
     public String getCategory() {
-        return "";
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getLikeCount() {
-        return -1;
+        return likeCount;
+    }
+
+    public void setLikeCount(int likeCount) {
+        this.likeCount = likeCount;
     }
 
     public Date getCreated() {
@@ -62,7 +74,11 @@ public class TwitterFeed implements IFeed {
     }
 
     public List<IFeedReply> getReplies() {
-        return Collections.emptyList();
+        return replies;
+    }
+
+    public void setReplies(List<IFeedReply> replies) {
+        this.replies = replies;
     }
 
 }

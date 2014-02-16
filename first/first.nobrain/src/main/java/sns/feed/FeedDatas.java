@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import sns.feed.feeds.domain.IFeed;
+import sns.feed.collector.feed.domain.IFeed;
 
 public class FeedDatas {
 
