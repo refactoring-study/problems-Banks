@@ -22,7 +22,7 @@ class GoPlFeedRegister implements IFeedRegister {
 
         ISnsAccount account = getAccount();
         if (!StringUtils.isEmpty(account.getAPIKey())) {
-            System.out.println(account.getSNSId() + " : ±∏«√ µÓ∑œ øœ∑·");
+            System.out.println(account.getSNSId() + " : Íµ¨Ìîå Îì±Î°ù ÏôÑÎ£å");
             GoplFeed feed = new GoplFeed();
             feed.setAccountId(account.getSNSId());
             feed.setAccountName(account.getSNSId());
@@ -33,7 +33,7 @@ class GoPlFeedRegister implements IFeedRegister {
             FeedStorage.getInstance().addFeed(feed);
             return IFeedRegister.Result.SUCCESS;
         } else {
-            System.out.println(account.getSNSId() + " : ±∏«√ µÓ∑œ Ω«∆–");
+            System.out.println(account.getSNSId() + " : Íµ¨Ìîå Îì±Î°ù Ïã§Ìå®");
             return IFeedRegister.Result.ERROR_NOT_AUTHORIZED;
         }
 

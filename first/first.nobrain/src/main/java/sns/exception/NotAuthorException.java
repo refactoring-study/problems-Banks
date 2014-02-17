@@ -5,7 +5,7 @@ public class NotAuthorException extends Exception {
     private static final long serialVersionUID = -3625632930655718702L;
 
     public NotAuthorException(String arg0) {
-        super("ÀÎÁõ ±ÇÇÑÀÌ ¾ø°Å³ª ÇØÁ¦µÈ »óÅÂÀÔ´Ï´Ù.");
+        super("ì¸ì¦ ê¶Œí•œì´ ì—†ê±°ë‚˜ í•´ì œëœ ìƒíƒœì…ë‹ˆë‹¤.");
     }
 
 

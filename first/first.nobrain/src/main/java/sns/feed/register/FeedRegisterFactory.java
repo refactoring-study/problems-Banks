@@ -11,7 +11,7 @@ public class FeedRegisterFactory {
 
         public Result register(FeedContent feedContent) {
 
-            System.out.println("³ë ´ä");
+            System.out.println("ë…¸ ë‹µ");
 
             return IFeedRegister.Result.ERROR_NOT_AUTHORIZED;
         }

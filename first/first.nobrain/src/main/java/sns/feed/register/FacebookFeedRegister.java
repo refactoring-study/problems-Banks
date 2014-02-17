@@ -22,7 +22,7 @@ class FacebookFeedRegister implements IFeedRegister {
 
         ISnsAccount account = getAccount();
         if (!StringUtils.isEmpty(account.getAPIKey())) {
-            System.out.println(account.getSNSId() + " : ∆‰¿ÃΩ∫∫œ µÓ∑œ øœ∑·");
+            System.out.println(account.getSNSId() + " : ÌéòÏù¥Ïä§Î∂Å Îì±Î°ù ÏôÑÎ£å");
             FacebookFeed feed = new FacebookFeed();
             feed.setAccountId(account.getSNSId());
             feed.setAccountName(account.getSNSId());
@@ -33,7 +33,7 @@ class FacebookFeedRegister implements IFeedRegister {
             FeedStorage.getInstance().addFeed(feed);
             return IFeedRegister.Result.SUCCESS;
         } else {
-            System.out.println(account.getSNSId() + " : ∆‰¿ÃΩ∫∫œ µÓ∑œ Ω«∆–");
+            System.out.println(account.getSNSId() + " : ÌéòÏù¥Ïä§Î∂Å Îì±Î°ù Ïã§Ìå®");
             return IFeedRegister.Result.ERROR_NOT_AUTHORIZED;
         }
 

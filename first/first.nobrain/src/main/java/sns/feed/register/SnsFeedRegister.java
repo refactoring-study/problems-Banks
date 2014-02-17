@@ -10,10 +10,10 @@ import sns.feed.register.domain.FeedContent;
 public class SnsFeedRegister {
 
    /**
-    * ÇÇµå µî·ÏÇÏ±â
-    * @param accounts µî·ÏÇÒ °èÁ¤
-    * @param message ¸Ş¼¼Áö ³»¿ë
-    * @return µî·Ï °á°ú, ¼ø¼­´Â Account ¿Í µ¿ÀÏ
+    * í”¼ë“œ ë“±ë¡í•˜ê¸°
+    * @param accounts ë“±ë¡í•  ê³„ì •
+    * @param message ë©”ì„¸ì§€ ë‚´ìš©
+    * @return ë“±ë¡ ê²°ê³¼, ìˆœì„œëŠ” Account ì™€ ë™ì¼
     */
     public List<Result> registerFeed(List<ISnsAccount> accounts, String message) {
 

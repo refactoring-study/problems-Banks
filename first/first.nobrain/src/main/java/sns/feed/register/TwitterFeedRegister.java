@@ -28,7 +28,7 @@ class TwitterFeedRegister implements IFeedRegister {
                 return IFeedRegister.Result.ERROR_NETWORK;
             }
 
-            System.out.println(account.getSNSId() + " : ∆Æ¿ß≈Õ µÓ∑œ øœ∑·");
+            System.out.println(account.getSNSId() + " : Ìä∏ÏúÑÌÑ∞ Îì±Î°ù ÏôÑÎ£å");
             TwitterFeed feed = new TwitterFeed();
             feed.setAccountId(account.getSNSId());
             feed.setAccountName(account.getSNSId());
@@ -38,7 +38,7 @@ class TwitterFeedRegister implements IFeedRegister {
             FeedStorage.getInstance().addFeed(feed);
             return IFeedRegister.Result.SUCCESS;
         } else {
-            System.out.println(account.getSNSId() + " : ∆Æ¿ß≈Õ µÓ∑œ Ω«∆–");
+            System.out.println(account.getSNSId() + " : Ìä∏ÏúÑÌÑ∞ Îì±Î°ù Ïã§Ìå®");
             return IFeedRegister.Result.ERROR_NOT_AUTHORIZED;
         }
 

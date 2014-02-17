@@ -12,10 +12,10 @@ import sns.feed.register.IFeedRegister.Result;
 public class RegisterValidator {
 
     /**
-     * ÁöÁ¤µÈ SNS Å¸ÀÔÀÌ Æ÷ÇÔµÇ¾î ÀÖ´ÂÁö È®ÀÎÇÔ
+     * ì§€ì •ëœ SNS íƒ€ì…ì´ í¬í•¨ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸í•¨
      *
-     * @param accounts sns °èÁ¤ ¸®½ºÆ®
-     * @return ¹ÌÁöÁ¤µÈ sns °èÁ¤ Å¸ÀÔµé
+     * @param accounts sns ê³„ì • ë¦¬ìŠ¤íŠ¸
+     * @return ë¯¸ì§€ì •ëœ sns ê³„ì • íƒ€ì…ë“¤
      */
     public List<SnsType> checkAccountList(List<ISnsAccount> accounts) {
 
@@ -30,23 +30,23 @@ public class RegisterValidator {
         }
 
         for (int idx = 0, size = notInvolvedTypes.size(); idx < size; ++idx) {
-            System.out.println(notInvolvedTypes.get(idx).name() + " : °èÁ¤ÀÌ ¾ø½À´Ï´Ù.");
+            System.out.println(notInvolvedTypes.get(idx).name() + " : ê³„ì •ì´ ì—†ìŠµë‹ˆë‹¤.");
         }
 
         return notInvolvedTypes;
     }
 
     /**
-     * °èÁ¤º° µî·Ï °á°ú¿¡ µû¶ó Àç½ÃµµÇÒ Á¤º¸ ÃßÃâÇÏ±â
+     * ê³„ì •ë³„ ë“±ë¡ ê²°ê³¼ì— ë”°ë¼ ì¬ì‹œë„í•  ì •ë³´ ì¶”ì¶œí•˜ê¸°
      *
-     * @param accounts °èÁ¤ ¸ñ·Ï
-     * @param resultList °èÁ¤º° µî·Ï °á°ú
-     * @return Àç½ÃµµÇÒ ¸ñ·Ï (µî·ÏµÇÁö ¾ÊÀº SNS Æ÷ÇÔ)
+     * @param accounts ê³„ì • ëª©ë¡
+     * @param resultList ê³„ì •ë³„ ë“±ë¡ ê²°ê³¼
+     * @return ì¬ì‹œë„í•  ëª©ë¡ (ë“±ë¡ë˜ì§€ ì•Šì€ SNS í¬í•¨)
      *
      */
     public List<SnsType> notifyRetry(List<ISnsAccount> accounts, List<Result> resultList) {
 
-        // ¿©±â Á» ±¸¸°³»ÀÎµ¥...À¸Èì...
+        // ì—¬ê¸° ì¢€ êµ¬ë¦°ë‚´ì¸ë°...ìœ¼í ...
 
         List<SnsType> notInvolvedTypes = new ArrayList<SnsTypeUtil.SnsType>();
 
@@ -57,7 +57,7 @@ public class RegisterValidator {
         }
 
         for (int idx = 0, size = notInvolvedTypes.size(); idx < size; ++idx) {
-            System.out.println(notInvolvedTypes.get(idx).name() + " : Àç½Ãµµ ÇØ¾ßÇÕ´Ï´Ù.");
+            System.out.println(notInvolvedTypes.get(idx).name() + " : ì¬ì‹œë„ í•´ì•¼í•©ë‹ˆë‹¤.");
         }
 
         return notInvolvedTypes;

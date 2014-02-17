@@ -22,17 +22,17 @@ public class FeedCollectorFactory {
     };
 
     /**
-     * ÇÇµå ¼öÁı±â »ı¼º
-     * @param snsAccount »ı¼ºÇÒ ÇÇµå °èÁ¤
+     * í”¼ë“œ ìˆ˜ì§‘ê¸° ìƒì„±
+     * @param snsAccount ìƒì„±í•  í”¼ë“œ ê³„ì •
      * @return
-     * @throws NotAuthorException ÀÎÁõ ¿À·ùµÈ Á¤º¸ÀÏ½Ã
+     * @throws NotAuthorException ì¸ì¦ ì˜¤ë¥˜ëœ ì •ë³´ì¼ì‹œ
      */
     public static IFeedCollector createFeedCollector(ISnsAccount snsAccount) throws NotAuthorException {
 
         IFeedCollector feedCollector= null;
 
         if (StringUtils.isEmpty(snsAccount.getAPIKey() )) {
-            throw new NotAuthorException("ÀÎÁõÅ°°¡ ¾ø½À´Ï´Ù.");
+            throw new NotAuthorException("ì¸ì¦í‚¤ê°€ ì—†ìŠµë‹ˆë‹¤.");
         }
 
         SnsTypeUtil.SnsType accountType = SnsTypeUtil.getSnsType(snsAccount);
