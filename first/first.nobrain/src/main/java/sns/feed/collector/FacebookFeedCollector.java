@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import sns.account.domain.ISnsAccount;
-import sns.feed.collector.feed.domain.IFeed;
+import sns.feed.FeedStorage;
+import sns.feed.feed.domain.IFeed;
 
 public class FacebookFeedCollector implements IFeedCollector {
 
@@ -15,7 +16,7 @@ public class FacebookFeedCollector implements IFeedCollector {
     }
 
     public List<IFeed> getFeeds(Date lastModifiedDate) {
-        return null;
+        return FeedStorage.getInstance().getFacebookFeeds();
     }
 
 }

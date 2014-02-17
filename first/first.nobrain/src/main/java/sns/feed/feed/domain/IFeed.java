@@ -1,9 +1,9 @@
-package sns.feed.collector.feed.domain;
+package sns.feed.feed.domain;
 
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.collector.reply.domain.IFeedReply;
+import sns.feed.reply.domain.IFeedReply;
 
 public interface IFeed {
 

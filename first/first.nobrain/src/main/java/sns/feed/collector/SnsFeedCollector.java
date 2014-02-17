@@ -6,7 +6,7 @@ import java.util.List;
 
 import sns.account.domain.ISnsAccount;
 import sns.exception.NotAuthorException;
-import sns.feed.collector.feed.domain.IFeed;
+import sns.feed.feed.domain.IFeed;
 
 public class SnsFeedCollector {
 

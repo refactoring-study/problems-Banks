@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import sns.account.AccountTypeUtil;
 import sns.account.domain.ISnsAccount;
 import sns.exception.NotAuthorException;
-import sns.feed.collector.feed.domain.IFeed;
+import sns.feed.feed.domain.IFeed;
 
 
 public class FeedCollectorFactory {
@@ -45,7 +45,7 @@ public class FeedCollectorFactory {
             feedCollector = new GoplFeedCollector(snsAccount);
             break;
         case ACCOUNT_TYPE_TWITTER:
-            feedCollector = new TwitterTwitCollector(snsAccount);
+            feedCollector = new TwitterFeedCollector(snsAccount);
             break;
         case ACCOUNT_TYPE_NO:
         default:

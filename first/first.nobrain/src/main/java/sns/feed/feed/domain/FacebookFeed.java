@@ -1,11 +1,11 @@
-package sns.feed.collector.feed.domain;
+package sns.feed.feed.domain;
 
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.collector.reply.domain.GoplFeedReply;
+import sns.feed.reply.domain.FacebookFeedReply;
 
-public class GoplFeed implements IFeed {
+public class FacebookFeed implements IFeed {
 
     private String id;
     private String message;
@@ -15,7 +15,7 @@ public class GoplFeed implements IFeed {
     private String accountName;
     private String accountId;
 
-    private List<GoplFeedReply> replies;
+    private List<FacebookFeedReply> replies;
 
     public String getId() {
         return id;
@@ -73,11 +73,11 @@ public class GoplFeed implements IFeed {
         this.accountId = accountId;
     }
 
-    public List<GoplFeedReply> getReplies() {
+    public List<FacebookFeedReply> getReplies() {
         return replies;
     }
 
-    public void setReplies(List<GoplFeedReply> replies) {
+    public void setReplies(List<FacebookFeedReply> replies) {
         this.replies = replies;
     }
 

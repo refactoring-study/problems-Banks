@@ -15,10 +15,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.collector.feed.domain.FacebookFeed;
-import sns.feed.collector.feed.domain.GoplFeed;
-import sns.feed.collector.feed.domain.IFeed;
-import sns.feed.collector.feed.domain.TwitterFeed;
+import sns.feed.feed.domain.FacebookFeed;
+import sns.feed.feed.domain.GoplFeed;
+import sns.feed.feed.domain.IFeed;
+import sns.feed.feed.domain.TwitterFeed;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;
@@ -150,11 +150,11 @@ public class FeedStorage {
         return Collections.emptyList();
     }
 
-    public void addAccount(IFeed snsAccount) {
+    public void addFeed(IFeed snsAccount) {
         feeds.add(snsAccount);
     }
 
-    public void removeAccount(IFeed snsAccount) {
+    public void removeFeed(IFeed snsAccount) {
         feeds.remove(snsAccount);
     }
 
@@ -162,8 +162,41 @@ public class FeedStorage {
         return feeds.get(index);
     }
 
-    public List<IFeed> getFeeds() {
+    public List<IFeed> getAllFeeds() {
         return Collections.unmodifiableList(feeds);
+    }
+
+    public List<IFeed> getFacebookFeeds() {
+
+        List<IFeed> facebookFeed = getFeedsForType(FacebookFeed.class);
+
+        return facebookFeed;
+    }
+
+    public List<IFeed> getGoplFeeds() {
+
+        List<IFeed> goplFeed = getFeedsForType(GoplFeed.class);
+
+        return goplFeed;
+    }
+
+    public List<IFeed> getTwitterFeeds() {
+
+        List<IFeed> twitterFeed = getFeedsForType(TwitterFeed.class);
+
+        return twitterFeed;
+    }
+
+    private List<IFeed> getFeedsForType(Class<? extends IFeed> args) {
+
+        List<IFeed> filteredFeed = new ArrayList<IFeed>();
+        for (int idx = 0, size = feeds.size(); idx < size; ++idx) {
+            if (feeds.get(idx).getClass() == args) {
+                filteredFeed.add(feeds.get(idx));
+            }
+        }
+
+        return filteredFeed;
     }
 
     public List<IFeed> getFeedsSortByCreatedDate() {

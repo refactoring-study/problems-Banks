@@ -1,35 +1,13 @@
 package sns.feed.register;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-import sns.account.AccountTypeUtil;
-import sns.account.AccountTypeUtil.AccountType;
 import sns.account.domain.ISnsAccount;
 import sns.feed.register.IFeedRegister.Result;
 import sns.feed.register.domain.FeedContent;
 
 public class SnsFeedRegister {
-
-    /**
-     * 지정된 SNS 타입이 포함되어 있는지 확인함
-     * @param accounts sns 계정 리스트
-     * @return 미지정된 sns 계정 타입들
-     */
-    public List<AccountType> checkAccountList(List<ISnsAccount> accounts) {
-
-        List<AccountType> notInvolvedTypes = new ArrayList<AccountTypeUtil.AccountType>(Arrays.asList(AccountType.values()));
-        notInvolvedTypes.remove(AccountType.ACCOUNT_TYPE_NO);
-
-        AccountType tempType;
-        for(int idx = 0, size = accounts.size(); idx < size; ++idx) {
-            tempType = AccountTypeUtil.getAccountType(accounts.get(idx));
-            notInvolvedTypes.remove(tempType);
-        }
-
-        return notInvolvedTypes;
-    }
 
    /**
     * 피드 등록하기

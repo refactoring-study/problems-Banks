@@ -1,4 +1,4 @@
-package sns.feed.collector.reply.domain;
+package sns.feed.reply.domain;
 
 import java.util.Date;
 

@@ -10,9 +10,6 @@ import sns.account.domain.GoplAccount;
 import sns.account.domain.ISnsAccount;
 import sns.account.domain.TwitterAccount;
 import sns.exception.NotAuthorException;
-import sns.feed.collector.FacebookFeedCollector;
-import sns.feed.collector.FeedCollectorFactory;
-import sns.feed.collector.IFeedCollector;
 
 public class FeedCollectorFactoryTest extends TestCase {
 
@@ -50,7 +47,7 @@ public class FeedCollectorFactoryTest extends TestCase {
             feedCollector = FeedCollectorFactory.createFeedCollector(account);
 
             assertNotNull(feedCollector);
-            assertTrue(feedCollector instanceof FacebookFeedCollector);
+            assertTrue(feedCollector instanceof TwitterFeedCollector);
         }
         {
             account = Mockito.mock(GoplAccount.class);
@@ -65,7 +62,7 @@ public class FeedCollectorFactoryTest extends TestCase {
             feedCollector = FeedCollectorFactory.createFeedCollector(account);
 
             assertNotNull(feedCollector);
-            assertTrue(feedCollector instanceof FacebookFeedCollector);
+            assertTrue(feedCollector instanceof GoplFeedCollector);
         }
 
     }

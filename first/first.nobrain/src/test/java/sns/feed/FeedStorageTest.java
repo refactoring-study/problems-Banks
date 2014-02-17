@@ -11,7 +11,7 @@ public class FeedStorageTest extends TestCase {
         FeedStorage instance = FeedStorage.getInstance();
 
         assertNotNull(instance);
-        assertTrue(instance.getFeeds().size() > 0);
+        assertTrue(instance.getAllFeeds().size() > 0);
     }
 
 }

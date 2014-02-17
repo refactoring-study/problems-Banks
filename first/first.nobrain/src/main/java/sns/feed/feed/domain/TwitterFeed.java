@@ -1,21 +1,17 @@
-package sns.feed.collector.feed.domain;
+package sns.feed.feed.domain;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.collector.reply.domain.FacebookFeedReply;
+import sns.feed.reply.domain.IFeedReply;
 
-public class FacebookFeed implements IFeed {
-
+public class TwitterFeed implements IFeed {
     private String id;
     private String message;
-    private String category;
-    private int likeCount;
     private Date created;
     private String accountName;
     private String accountId;
-
-    private List<FacebookFeedReply> replies;
 
     public String getId() {
         return id;
@@ -34,19 +30,11 @@ public class FacebookFeed implements IFeed {
     }
 
     public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+        return "";
     }
 
     public int getLikeCount() {
-        return likeCount;
-    }
-
-    public void setLikeCount(int likeCount) {
-        this.likeCount = likeCount;
+        return -1;
     }
 
     public Date getCreated() {
@@ -73,12 +61,8 @@ public class FacebookFeed implements IFeed {
         this.accountId = accountId;
     }
 
-    public List<FacebookFeedReply> getReplies() {
-        return replies;
-    }
-
-    public void setReplies(List<FacebookFeedReply> replies) {
-        this.replies = replies;
+    public List<IFeedReply> getReplies() {
+        return Collections.emptyList();
     }
 
 }

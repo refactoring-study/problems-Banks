@@ -1,16 +1,21 @@
-package sns.feed.collector.reply.domain;
+package sns.feed.feed.domain;
 
 import java.util.Date;
+import java.util.List;
 
-public class GoplFeedReply implements IFeedReply {
+import sns.feed.reply.domain.GoplFeedReply;
+
+public class GoplFeed implements IFeed {
 
     private String id;
-    private String feedId;
     private String message;
+    private String category;
     private int likeCount;
     private Date created;
     private String accountName;
     private String accountId;
+
+    private List<GoplFeedReply> replies;
 
     public String getId() {
         return id;
@@ -20,20 +25,20 @@ public class GoplFeedReply implements IFeedReply {
         this.id = id;
     }
 
-    public String getFeedId() {
-        return feedId;
-    }
-
-    public void setFeedId(String feedId) {
-        this.feedId = feedId;
-    }
-
     public String getMessage() {
         return message;
     }
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public int getLikeCount() {
@@ -66,6 +71,14 @@ public class GoplFeedReply implements IFeedReply {
 
     public void setAccountId(String accountId) {
         this.accountId = accountId;
+    }
+
+    public List<GoplFeedReply> getReplies() {
+        return replies;
+    }
+
+    public void setReplies(List<GoplFeedReply> replies) {
+        this.replies = replies;
     }
 
 }
