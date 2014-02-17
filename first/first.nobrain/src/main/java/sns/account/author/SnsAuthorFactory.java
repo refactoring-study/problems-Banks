@@ -1,7 +1,7 @@
 package sns.account.author;
 
-import sns.account.AccountTypeUtil;
-import sns.account.AccountTypeUtil.AccountType;
+import sns.SnsTypeUtil;
+import sns.SnsTypeUtil.SnsType;
 import sns.account.domain.ISnsAccount;
 
 public class SnsAuthorFactory {
@@ -17,7 +17,7 @@ public class SnsAuthorFactory {
 
     public static ISnsAuthor createSnsAuthor(ISnsAccount account) {
 
-        AccountType accountType = AccountTypeUtil.getAccountType(account);
+        SnsType accountType = SnsTypeUtil.getSnsType(account);
 
         ISnsAuthor snsAuthor;
         switch (accountType) {

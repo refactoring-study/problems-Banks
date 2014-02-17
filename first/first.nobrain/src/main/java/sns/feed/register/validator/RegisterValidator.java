@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import sns.account.AccountTypeUtil;
-import sns.account.AccountTypeUtil.AccountType;
+import sns.SnsTypeUtil;
+import sns.SnsTypeUtil.SnsType;
 import sns.account.domain.ISnsAccount;
 import sns.feed.register.IFeedRegister.Result;
 
@@ -17,15 +17,15 @@ public class RegisterValidator {
      * @param accounts sns 계정 리스트
      * @return 미지정된 sns 계정 타입들
      */
-    public List<AccountType> checkAccountList(List<ISnsAccount> accounts) {
+    public List<SnsType> checkAccountList(List<ISnsAccount> accounts) {
 
-        List<AccountType> notInvolvedTypes = new ArrayList<AccountTypeUtil.AccountType>(Arrays.asList(AccountType
+        List<SnsType> notInvolvedTypes = new ArrayList<SnsTypeUtil.SnsType>(Arrays.asList(SnsType
                 .values()));
-        notInvolvedTypes.remove(AccountType.ACCOUNT_TYPE_NO);
+        notInvolvedTypes.remove(SnsType.ACCOUNT_TYPE_NO);
 
-        AccountType tempType;
+        SnsType tempType;
         for (int idx = 0, size = accounts.size(); idx < size; ++idx) {
-            tempType = AccountTypeUtil.getAccountType(accounts.get(idx));
+            tempType = SnsTypeUtil.getSnsType(accounts.get(idx));
             notInvolvedTypes.remove(tempType);
         }
 
@@ -44,15 +44,15 @@ public class RegisterValidator {
      * @return 재시도할 목록 (등록되지 않은 SNS 포함)
      *
      */
-    public List<AccountType> notifyRetry(List<ISnsAccount> accounts, List<Result> resultList) {
+    public List<SnsType> notifyRetry(List<ISnsAccount> accounts, List<Result> resultList) {
 
         // 여기 좀 구린내인데...으흠...
 
-        List<AccountType> notInvolvedTypes = new ArrayList<AccountTypeUtil.AccountType>();
+        List<SnsType> notInvolvedTypes = new ArrayList<SnsTypeUtil.SnsType>();
 
         for (int idx = 0, size = accounts.size(); idx < size; ++idx) {
             if (resultList.get(idx) != Result.SUCCESS) {
-                notInvolvedTypes.add(AccountTypeUtil.getAccountType(accounts.get(idx)));
+                notInvolvedTypes.add(SnsTypeUtil.getSnsType(accounts.get(idx)));
             }
         }
 

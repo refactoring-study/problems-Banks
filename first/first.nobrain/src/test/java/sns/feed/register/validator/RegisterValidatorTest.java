@@ -8,7 +8,7 @@ import junit.framework.TestCase;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import sns.account.AccountTypeUtil.AccountType;
+import sns.SnsTypeUtil.SnsType;
 import sns.account.domain.FacebookAccount;
 import sns.account.domain.GoplAccount;
 import sns.account.domain.ISnsAccount;
@@ -28,14 +28,14 @@ public class RegisterValidatorTest extends TestCase {
     @Test
     public void testCheckAccounts() throws Exception {
         List<ISnsAccount> accounts;
-        List<AccountType> notInvolvedList;
+        List<SnsType> notInvolvedList;
 
         {
             // 등록된 계정이 하나도 없음
             accounts = new ArrayList<ISnsAccount>();
             notInvolvedList = feedValidator.checkAccountList(accounts);
 
-            assertEquals(AccountType.values().length - 1, notInvolvedList.size());
+            assertEquals(SnsType.values().length - 1, notInvolvedList.size());
         }
 
         {
@@ -44,7 +44,7 @@ public class RegisterValidatorTest extends TestCase {
             accounts.add(new TwitterAccount());
             notInvolvedList = feedValidator.checkAccountList(accounts);
 
-            assertEquals(AccountType.values().length - 3, notInvolvedList.size());
+            assertEquals(SnsType.values().length - 3, notInvolvedList.size());
         }
 
         {
@@ -62,7 +62,7 @@ public class RegisterValidatorTest extends TestCase {
     public void testNotifyRetry() throws Exception {
 
         List<ISnsAccount> accounts;
-        List<AccountType> notInvolvedList;
+        List<SnsType> notInvolvedList;
         List<Result> results;
 
         {
@@ -92,7 +92,7 @@ public class RegisterValidatorTest extends TestCase {
             notInvolvedList = feedValidator.notifyRetry(accounts, results);
 
             assertEquals(1, notInvolvedList.size());
-            assertEquals(AccountType.ACCOUNT_TYPE_FACEBOOK, notInvolvedList.get(0));
+            assertEquals(SnsType.ACCOUNT_TYPE_FACEBOOK, notInvolvedList.get(0));
         }
 
         {
@@ -105,7 +105,7 @@ public class RegisterValidatorTest extends TestCase {
             notInvolvedList = feedValidator.notifyRetry(accounts, results);
 
             assertEquals(1, notInvolvedList.size());
-            assertEquals(AccountType.ACCOUNT_TYPE_TWITTER, notInvolvedList.get(0));
+            assertEquals(SnsType.ACCOUNT_TYPE_TWITTER, notInvolvedList.get(0));
         }
 
 

@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import sns.account.AccountTypeUtil;
+import sns.SnsTypeUtil;
 import sns.account.domain.ISnsAccount;
 import sns.exception.NotAuthorException;
 import sns.feed.feed.domain.IFeed;
@@ -35,7 +35,7 @@ public class FeedCollectorFactory {
             throw new NotAuthorException("인증키가 없습니다.");
         }
 
-        AccountTypeUtil.AccountType accountType = AccountTypeUtil.getAccountType(snsAccount);
+        SnsTypeUtil.SnsType accountType = SnsTypeUtil.getSnsType(snsAccount);
 
         switch (accountType) {
         case ACCOUNT_TYPE_FACEBOOK:

@@ -1,7 +1,7 @@
 package sns.feed.register;
 
-import sns.account.AccountTypeUtil;
-import sns.account.AccountTypeUtil.AccountType;
+import sns.SnsTypeUtil;
+import sns.SnsTypeUtil.SnsType;
 import sns.account.domain.ISnsAccount;
 import sns.feed.register.domain.FeedContent;
 
@@ -19,7 +19,7 @@ public class FeedRegisterFactory {
 
     public static IFeedRegister createFeedRegister(ISnsAccount account) {
 
-        AccountType accountType = AccountTypeUtil.getAccountType(account);
+        SnsType accountType = SnsTypeUtil.getSnsType(account);
 
         IFeedRegister feedRegister;
 
