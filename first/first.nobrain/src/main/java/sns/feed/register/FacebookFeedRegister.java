@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import sns.account.domain.ISnsAccount;
 import sns.feed.FeedStorage;
-import sns.feed.feed.domain.FacebookFeed;
+import sns.feed.domain.feed.FacebookFeed;
 import sns.feed.register.domain.FeedContent;
 
 class FacebookFeedRegister implements IFeedRegister {

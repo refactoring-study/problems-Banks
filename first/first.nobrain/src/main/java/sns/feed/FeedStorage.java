@@ -15,10 +15,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.feed.domain.FacebookFeed;
-import sns.feed.feed.domain.GoplFeed;
-import sns.feed.feed.domain.IFeed;
-import sns.feed.feed.domain.TwitterFeed;
+import sns.feed.domain.feed.FacebookFeed;
+import sns.feed.domain.feed.GoplFeed;
+import sns.feed.domain.feed.IFeed;
+import sns.feed.domain.feed.TwitterFeed;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonDeserializationContext;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import sns.account.domain.ISnsAccount;
 import sns.feed.FeedStorage;
-import sns.feed.feed.domain.IFeed;
+import sns.feed.domain.feed.IFeed;
 
 public class TwitterFeedCollector implements IFeedCollector {
 

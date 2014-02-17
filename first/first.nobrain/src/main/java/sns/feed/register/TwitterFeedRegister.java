@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import sns.account.domain.ISnsAccount;
 import sns.feed.FeedStorage;
-import sns.feed.feed.domain.TwitterFeed;
+import sns.feed.domain.feed.TwitterFeed;
 import sns.feed.register.domain.FeedContent;
 
 class TwitterFeedRegister implements IFeedRegister {

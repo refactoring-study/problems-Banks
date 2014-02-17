@@ -1,10 +1,10 @@
-package sns.feed.feed.domain;
+package sns.feed.domain.feed;
 
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
-import sns.feed.reply.domain.IFeedReply;
+import sns.feed.domain.reply.IFeedReply;
 
 public class TwitterFeed implements IFeed {
     private String id;
