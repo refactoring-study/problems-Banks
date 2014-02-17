@@ -11,7 +11,7 @@ import sns.account.domain.FacebookAccount;
 import sns.account.domain.GoplAccount;
 import sns.account.domain.ISnsAccount;
 import sns.account.domain.TwitterAccount;
-import sns.feed.feed.domain.IFeed;
+import sns.feed.domain.feed.IFeed;
 
 public class SnsFeedCollectorTest extends TestCase {
 

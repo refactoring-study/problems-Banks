@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import sns.SnsTypeUtil.SnsType;
-import sns.feed.feed.domain.IFeed;
+import sns.feed.domain.feed.IFeed;
 
 public class FeedDatas {
 

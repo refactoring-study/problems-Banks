@@ -9,7 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import sns.SnsTypeUtil;
 import sns.account.domain.ISnsAccount;
 import sns.exception.NotAuthorException;
-import sns.feed.feed.domain.IFeed;
+import sns.feed.domain.feed.IFeed;
 
 
 public class FeedCollectorFactory {
