@@ -6,8 +6,9 @@ import org.junit.Test;
 import org.mockito.Mockito;
 
 import sns.account.domain.FacebookAccount;
-import sns.account.domain.ISnsAccount;
 import sns.account.domain.GoplAccount;
+import sns.account.domain.SnsAccount;
+import sns.account.domain.SnsAccount.AccountType;
 import sns.account.domain.TwitterAccount;
 
 public class SNSAuthorFactoryTest extends TestCase {
@@ -17,7 +18,7 @@ public class SNSAuthorFactoryTest extends TestCase {
     public void testCreateSnsAuthor() throws Exception {
         {
             // Given : Facebook Account
-            ISnsAccount account = new FacebookAccount();
+            SnsAccount account = new FacebookAccount();
 
             // When : Create Author & Authorize
             ISnsAuthor snsAuthor = SnsAuthorFactory.createSnsAuthor(account);
@@ -28,7 +29,7 @@ public class SNSAuthorFactoryTest extends TestCase {
 
         {
             // Given : Kakao Account
-            ISnsAccount account = new GoplAccount();
+            SnsAccount account = new GoplAccount();
 
             // When : Create Author & Authorize
             ISnsAuthor snsAuthor = SnsAuthorFactory.createSnsAuthor(account);
@@ -39,7 +40,7 @@ public class SNSAuthorFactoryTest extends TestCase {
 
         {
             // Given : Twitter Account
-            ISnsAccount account = new TwitterAccount();
+            SnsAccount account = new TwitterAccount();
 
             // When : Create Author & Authorize
             ISnsAuthor snsAuthor = SnsAuthorFactory.createSnsAuthor(account);
@@ -50,7 +51,8 @@ public class SNSAuthorFactoryTest extends TestCase {
 
         {
             // Given : UnknownType Account
-            ISnsAccount account = Mockito.mock(ISnsAccount.class);
+            SnsAccount account = Mockito.mock(SnsAccount.class);
+            Mockito.when(account.getAccountType()).thenReturn(AccountType.ACCOUNT_TYPE_NO);
 
             // When : Create Author & Authorize
             ISnsAuthor snsAuthor = SnsAuthorFactory.createSnsAuthor(account);

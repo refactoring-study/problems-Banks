@@ -7,7 +7,8 @@ import org.mockito.Mockito;
 
 import sns.account.domain.FacebookAccount;
 import sns.account.domain.GoplAccount;
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
+import sns.account.domain.SnsAccount.AccountType;
 import sns.account.domain.TwitterAccount;
 import sns.exception.NotAuthorException;
 
@@ -16,19 +17,20 @@ public class FeedCollectorFactoryTest extends TestCase {
     @Test
     public void testCreateFeedCollector() throws Exception {
 
-        ISnsAccount account;
+        SnsAccount account;
         IFeedCollector feedCollector;
 
         {
             account = Mockito.mock(FacebookAccount.class);
             try {
                 feedCollector = FeedCollectorFactory.createFeedCollector(account);
-                fail("∫Ò¡§ªÛ ««µÂ ºˆ¡˝±‚¿”");
+                fail("Ïù∏Ï¶ù ÏóêÎü¨Í∞Ä ÎÇòÏïº Ìï©ÎãàÎã§.");
             } catch (NotAuthorException e) {
 
             }
 
             Mockito.when(account.getAPIKey()).thenReturn("facebook api");
+            Mockito.when(account.getAccountType()).thenReturn(AccountType.ACCOUNT_TYPE_FACEBOOK);
             feedCollector = FeedCollectorFactory.createFeedCollector(account);
 
             assertNotNull(feedCollector);
@@ -38,12 +40,13 @@ public class FeedCollectorFactoryTest extends TestCase {
             account = Mockito.mock(TwitterAccount.class);
             try {
                 feedCollector = FeedCollectorFactory.createFeedCollector(account);
-                fail("∫Ò¡§ªÛ ««µÂ ºˆ¡˝±‚¿”");
+                fail("Ïù∏Ï¶ù ÏóêÎü¨Í∞Ä ÎÇòÏïº Ìï©ÎãàÎã§.");
             } catch (NotAuthorException e) {
 
             }
 
             Mockito.when(account.getAPIKey()).thenReturn("twitter api");
+            Mockito.when(account.getAccountType()).thenReturn(AccountType.ACCOUNT_TYPE_TWITTER);
             feedCollector = FeedCollectorFactory.createFeedCollector(account);
 
             assertNotNull(feedCollector);
@@ -53,12 +56,13 @@ public class FeedCollectorFactoryTest extends TestCase {
             account = Mockito.mock(GoplAccount.class);
             try {
                 feedCollector = FeedCollectorFactory.createFeedCollector(account);
-                fail("∫Ò¡§ªÛ ««µÂ ºˆ¡˝±‚¿”");
+                fail("Ïù∏Ï¶ù ÏóêÎü¨Í∞Ä ÎÇòÏïº Ìï©ÎãàÎã§.");
             } catch (NotAuthorException e) {
 
             }
 
             Mockito.when(account.getAPIKey()).thenReturn("gopl api");
+            Mockito.when(account.getAccountType()).thenReturn(AccountType.ACCOUNT_TYPE_GOPL);
             feedCollector = FeedCollectorFactory.createFeedCollector(account);
 
             assertNotNull(feedCollector);

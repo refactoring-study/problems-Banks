@@ -1,37 +1,34 @@
 package sns.feed.register;
 
-import sns.SnsTypeUtil;
-import sns.SnsTypeUtil.SnsType;
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
+import sns.account.domain.SnsAccount.AccountType;
 import sns.feed.register.domain.FeedContent;
 
 public class FeedRegisterFactory {
 
     private static IFeedRegister noTypeRegister = new IFeedRegister() {
 
-        public Result register(FeedContent feedContent) {
-
-            System.out.println("노 답");
+        public Result register(SnsAccount account, FeedContent feedContent) {
 
             return IFeedRegister.Result.ERROR_NOT_AUTHORIZED;
         }
     };
 
-    public static IFeedRegister createFeedRegister(ISnsAccount account) {
+    public static IFeedRegister createFeedRegister(SnsAccount account) {
 
-        SnsType accountType = SnsTypeUtil.getSnsType(account);
+        AccountType accountType = account.getAccountType();
 
         IFeedRegister feedRegister;
 
         switch (accountType) {
         case ACCOUNT_TYPE_FACEBOOK:
-            feedRegister = new FacebookFeedRegister(account);
+            feedRegister = new FacebookFeedRegister();
             break;
         case ACCOUNT_TYPE_GOPL:
-            feedRegister = new GoPlFeedRegister(account);
+            feedRegister = new GoPlFeedRegister();
             break;
         case ACCOUNT_TYPE_TWITTER:
-            feedRegister = new TwitterFeedRegister(account);
+            feedRegister = new TwitterFeedRegister();
             break;
         case ACCOUNT_TYPE_NO:
         default:

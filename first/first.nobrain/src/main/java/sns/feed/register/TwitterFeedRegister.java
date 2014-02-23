@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
 import sns.feed.FeedStorage;
 import sns.feed.domain.feed.TwitterFeed;
 import sns.feed.register.domain.FeedContent;
@@ -13,15 +13,9 @@ import sns.feed.register.domain.FeedContent;
 class TwitterFeedRegister implements IFeedRegister {
 
     private static final int FEED_LENGTH_LIMIT = 140;
-    private final ISnsAccount account;
 
-    public TwitterFeedRegister(ISnsAccount account) {
-        this.account = account;
-    }
+    public Result register(SnsAccount account, FeedContent feedContent) {
 
-    public Result register(FeedContent feedContent) {
-
-        ISnsAccount account = getAccount();
         if (!StringUtils.isEmpty(account.getAPIKey())) {
 
             if (feedContent.getMessage().length() > FEED_LENGTH_LIMIT) {
@@ -44,9 +38,4 @@ class TwitterFeedRegister implements IFeedRegister {
 
 
     }
-
-    public ISnsAccount getAccount() {
-        return account;
-    }
-
 }

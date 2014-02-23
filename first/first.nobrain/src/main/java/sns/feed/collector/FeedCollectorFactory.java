@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 
-import sns.SnsTypeUtil;
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
+import sns.account.domain.SnsAccount.AccountType;
 import sns.exception.NotAuthorException;
 import sns.feed.domain.feed.IFeed;
 
@@ -16,7 +16,8 @@ public class FeedCollectorFactory {
 
     private static final IFeedCollector NO_FEED_COLLECTOR = new IFeedCollector() {
 
-        public List<IFeed> getFeeds(Date lastModifiedDate) {
+        public List<IFeed> getFeeds(SnsAccount account, Date lastModifiedDate) {
+
             return Collections.emptyList();
         }
     };
@@ -27,7 +28,7 @@ public class FeedCollectorFactory {
      * @return
      * @throws NotAuthorException 인증 오류된 정보일시
      */
-    public static IFeedCollector createFeedCollector(ISnsAccount snsAccount) throws NotAuthorException {
+    public static IFeedCollector createFeedCollector(SnsAccount snsAccount) throws NotAuthorException {
 
         IFeedCollector feedCollector= null;
 
@@ -35,17 +36,17 @@ public class FeedCollectorFactory {
             throw new NotAuthorException("인증키가 없습니다.");
         }
 
-        SnsTypeUtil.SnsType accountType = SnsTypeUtil.getSnsType(snsAccount);
+        AccountType accountType = snsAccount.getAccountType();
 
         switch (accountType) {
         case ACCOUNT_TYPE_FACEBOOK:
-            feedCollector = new FacebookFeedCollector(snsAccount);
+            feedCollector = new FacebookFeedCollector();
             break;
         case ACCOUNT_TYPE_GOPL:
-            feedCollector = new GoplFeedCollector(snsAccount);
+            feedCollector = new GoplFeedCollector();
             break;
         case ACCOUNT_TYPE_TWITTER:
-            feedCollector = new TwitterFeedCollector(snsAccount);
+            feedCollector = new TwitterFeedCollector();
             break;
         case ACCOUNT_TYPE_NO:
         default:

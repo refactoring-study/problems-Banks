@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import sns.SnsTypeUtil.SnsType;
+import sns.account.domain.SnsAccount.AccountType;
 import sns.feed.domain.feed.IFeed;
 
 public class FeedDatas {
@@ -37,7 +37,7 @@ public class FeedDatas {
         return feeds.get(index);
     }
 
-    public List<IFeed> getFeeds(SnsType type) {
+    public List<IFeed> getFeeds(AccountType type) {
         return Collections.unmodifiableList(feeds);
     }
 

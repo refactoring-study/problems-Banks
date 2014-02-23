@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
 
 public class AccountDatas {
 
     private static AccountDatas instace;
 
-    private List<ISnsAccount> accounts;
+    private List<SnsAccount> accounts;
 
     private AccountDatas() {
-        accounts = Collections.synchronizedList(new ArrayList<ISnsAccount>());
+        accounts = Collections.synchronizedList(new ArrayList<SnsAccount>());
     }
 
     public static AccountDatas getInstance() {
@@ -24,19 +24,19 @@ public class AccountDatas {
         return instace;
     }
 
-    public void addAccount(ISnsAccount snsAccount) {
+    public void addAccount(SnsAccount snsAccount) {
         accounts.add(snsAccount);
     }
 
-    public void removeAccount(ISnsAccount snsAccount) {
+    public void removeAccount(SnsAccount snsAccount) {
         accounts.remove(snsAccount);
     }
 
-    public ISnsAccount get(int index) {
+    public SnsAccount get(int index) {
         return accounts.get(index);
     }
 
-    public List<ISnsAccount> getAccounts() {
+    public List<SnsAccount> getAccounts() {
         return Collections.unmodifiableList(accounts);
     }
 

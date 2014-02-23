@@ -1,6 +1,7 @@
 package sns.account.domain;
 
-public class FacebookAccount implements ISnsAccount {
+
+public class FacebookAccount implements SnsAccount {
 
     private String apiKey;
     private String snsId;
@@ -19,6 +20,10 @@ public class FacebookAccount implements ISnsAccount {
 
     public void setSNSId(String snsId) {
         this.snsId = snsId;
+    }
+
+    public AccountType getAccountType() {
+        return AccountType.ACCOUNT_TYPE_FACEBOOK;
     }
 
 }

@@ -5,22 +5,15 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
 import sns.feed.FeedStorage;
 import sns.feed.domain.feed.GoplFeed;
 import sns.feed.register.domain.FeedContent;
 
 class GoPlFeedRegister implements IFeedRegister {
 
-    private final ISnsAccount account;
+    public Result register(SnsAccount account, FeedContent feedContent) {
 
-    public GoPlFeedRegister(ISnsAccount account) {
-        this.account = account;
-    }
-
-    public Result register(FeedContent feedContent) {
-
-        ISnsAccount account = getAccount();
         if (!StringUtils.isEmpty(account.getAPIKey())) {
             System.out.println(account.getSNSId() + " : 구플 등록 완료");
             GoplFeed feed = new GoplFeed();
@@ -39,9 +32,4 @@ class GoPlFeedRegister implements IFeedRegister {
 
 
     }
-
-    public ISnsAccount getAccount() {
-        return account;
-    }
-
 }

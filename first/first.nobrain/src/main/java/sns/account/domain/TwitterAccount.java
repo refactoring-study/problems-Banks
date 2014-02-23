@@ -1,6 +1,7 @@
 package sns.account.domain;
 
-public class TwitterAccount implements ISnsAccount {
+
+public class TwitterAccount implements SnsAccount {
 
     private String apiKey;
     private String snsId;
@@ -21,6 +22,10 @@ public class TwitterAccount implements ISnsAccount {
 
     public void setSNSId(String snsId) {
         this.snsId = snsId;
+    }
+
+    public AccountType getAccountType() {
+        return AccountType.ACCOUNT_TYPE_TWITTER;
     }
 
 }

@@ -1,23 +1,22 @@
 package sns.account.author;
 
-import sns.SnsTypeUtil;
-import sns.SnsTypeUtil.SnsType;
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
+import sns.account.domain.SnsAccount.AccountType;
+import sns.exception.NotAuthorException;
 
 public class SnsAuthorFactory {
 
-    // Null ��ü
+    // Null 객체
     private static final ISnsAuthor NO_TYPE_AUTHOR = new ISnsAuthor() {
 
-        public ISnsAccount executeAuth(ISnsAccount account) {
-            account.setAPIKey("");
-            return account;
+        public SnsAccount executeAuth(SnsAccount account) throws NotAuthorException {
+            throw new NotAuthorException("계정 정보가 알 수 없는 타입입니다.");
         }
     };
 
-    public static ISnsAuthor createSnsAuthor(ISnsAccount account) {
+    public static ISnsAuthor createSnsAuthor(SnsAccount account) {
 
-        SnsType accountType = SnsTypeUtil.getSnsType(account);
+        AccountType accountType = account.getAccountType();
 
         ISnsAuthor snsAuthor;
         switch (accountType) {

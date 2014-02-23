@@ -1,6 +1,7 @@
 package sns.account.domain;
 
-public class GoplAccount implements ISnsAccount {
+
+public class GoplAccount implements SnsAccount {
 
     private String apiKey;
     private String snsId;
@@ -21,4 +22,7 @@ public class GoplAccount implements ISnsAccount {
         this.snsId = snsId;
     }
 
+    public AccountType getAccountType() {
+        return AccountType.ACCOUNT_TYPE_GOPL;
+    }
 }

@@ -5,22 +5,15 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
 import sns.feed.FeedStorage;
 import sns.feed.domain.feed.FacebookFeed;
 import sns.feed.register.domain.FeedContent;
 
 class FacebookFeedRegister implements IFeedRegister {
 
-    private final ISnsAccount account;
+    public Result register(SnsAccount account, FeedContent feedContent) {
 
-    public FacebookFeedRegister(ISnsAccount account) {
-        this.account = account;
-    }
-
-    public Result register(FeedContent feedContent) {
-
-        ISnsAccount account = getAccount();
         if (!StringUtils.isEmpty(account.getAPIKey())) {
             System.out.println(account.getSNSId() + " : 페이스북 등록 완료");
             FacebookFeed feed = new FacebookFeed();
@@ -38,10 +31,6 @@ class FacebookFeedRegister implements IFeedRegister {
         }
 
 
-    }
-
-    public ISnsAccount getAccount() {
-        return account;
     }
 
 }

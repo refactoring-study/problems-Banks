@@ -1,8 +1,9 @@
 package sns.account.author;
 
-import sns.account.domain.ISnsAccount;
+import sns.account.domain.SnsAccount;
+import sns.exception.NotAuthorException;
 
 public interface ISnsAuthor {
 
-    public ISnsAccount executeAuth(ISnsAccount account);
+    public SnsAccount executeAuth(SnsAccount account) throws NotAuthorException;
 }
