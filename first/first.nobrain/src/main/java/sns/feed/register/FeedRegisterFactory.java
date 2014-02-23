@@ -4,7 +4,7 @@ import sns.account.domain.SnsAccount;
 import sns.account.domain.SnsAccount.AccountType;
 import sns.feed.register.domain.FeedContent;
 
-public class FeedRegisterFactory {
+class FeedRegisterFactory {
 
     private static IFeedRegister noTypeRegister = new IFeedRegister() {
 
