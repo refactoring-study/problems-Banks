@@ -1,14 +1,13 @@
 package com.sns.core.sns.facebook;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.sns.core.sns.Post;
-import com.sns.core.sns.Posts;
+import com.sns.core.sns.SocialPosts;
 
 public class MockFacebookApiImplTest {
 
@@ -23,7 +22,7 @@ public class MockFacebookApiImplTest {
 	@Test
 	public void testGetRecentPosts() {
 		MockFacebookApiImpl api = new MockFacebookApiImpl();
-		Posts posts = api.getRecentPosts(7);
+		SocialPosts posts = api.getRecentPosts(7);
 		assertThat(posts.getPosts().size(), is(7));
 	}
 

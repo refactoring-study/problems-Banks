@@ -4,4 +4,6 @@ import com.sns.core.sns.SocialServiceApi;
 
 public interface GooglePlusApi extends SocialServiceApi {
 
+	void updateStatus(String message);
+
 }

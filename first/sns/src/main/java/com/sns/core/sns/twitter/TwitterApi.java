@@ -1,13 +1,13 @@
 package com.sns.core.sns.twitter;
 
-import com.sns.core.sns.Post;
-import com.sns.core.sns.Posts;
+import com.sns.core.sns.SocialPost;
+import com.sns.core.sns.SocialPosts;
 import com.sns.core.sns.SocialServiceApi;
 
 public interface TwitterApi extends SocialServiceApi {
-	Post updateStatus(String status);
+	SocialPost updateStatus(String status);
 
-	Post getPost(String postId);
+	SocialPost getPost(String postId);
 
-	Posts getRecentPosts(int limit);
+	SocialPosts getRecentPosts(int limit);
 }

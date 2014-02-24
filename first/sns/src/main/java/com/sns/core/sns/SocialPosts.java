@@ -2,15 +2,15 @@ package com.sns.core.sns;
 
 import java.util.List;
 
-public class Posts {
+public class SocialPosts {
 	private final int total;
-	private final List<Post> posts;
+	private final List<SocialPost> posts;
 	
-	public Posts(List<Post> posts) {
+	public SocialPosts(List<SocialPost> posts) {
 		this(posts, posts.size());
 	}
 	
-	public Posts(List<Post> posts, int total) {
+	public SocialPosts(List<SocialPost> posts, int total) {
 		this.total = total;
 		this.posts = posts;
 	}
@@ -19,7 +19,7 @@ public class Posts {
 		return total;
 	}
 	
-	public List<Post> getPosts() {
+	public List<SocialPost> getPosts() {
 		return posts;
 	}
 }

@@ -15,15 +15,14 @@ public abstract class SocialClient implements Serializable {
 	private Date createdTime;
 	private Date lastModifiedTime;
 
-	public SocialClient(String id, String name, String returnUri, String applicationKey, String applicationSecret,
-			Date createdTime, Date lastModifiedTime) {
+	public SocialClient(String id, String name, String returnUri, String applicationKey, String applicationSecret) {
 		this.id = id;
 		this.name = name;
 		this.returnUri = returnUri;
 		this.applicationKey = applicationKey;
 		this.applicationSecret = applicationSecret;
-		this.createdTime = createdTime;
-		this.lastModifiedTime = lastModifiedTime;
+		this.createdTime = new Date();
+		this.lastModifiedTime = new Date();
 	}
 
 	public abstract SocialProvider getProvider();

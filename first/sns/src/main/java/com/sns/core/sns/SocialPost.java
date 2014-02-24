@@ -2,7 +2,7 @@ package com.sns.core.sns;
 
 import java.util.Date;
 
-public interface Post {
+public interface SocialPost {
 	
 	String getId();
 	

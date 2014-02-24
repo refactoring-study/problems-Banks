@@ -1,20 +1,16 @@
 package com.sns.core.sns;
 
-import java.util.Date;
-
+import com.sns.core.sns.facebook.FacebookAuthApi;
 import com.sns.core.sns.facebook.MockFacebookApiImpl;
 import com.sns.core.sns.facebook.MockFacebookAuthApiImpl;
 
 public class FacebookClient extends SocialClient {
 
-	public FacebookClient(String id, String name, String returnUri, String applicationKey, String applicationSecret,
-			Date createdTime, Date lastModifiedTime) {
-		super(id, name, returnUri, applicationKey, applicationSecret, createdTime, lastModifiedTime);
+	public FacebookClient(String id, String name, String returnUri, String applicationKey, String applicationSecret) {
+		super(id, name, returnUri, applicationKey, applicationSecret);
 	}
 
 	private static final long serialVersionUID = 1L;
-	
-	
 
 	@Override
 	public SocialProvider getProvider() {
@@ -27,7 +23,7 @@ public class FacebookClient extends SocialClient {
 	}
 
 	@Override
-	public SocialAuthApi getAuthApi() {
+	public FacebookAuthApi getAuthApi() {
 		return new MockFacebookAuthApiImpl();
 	}
 

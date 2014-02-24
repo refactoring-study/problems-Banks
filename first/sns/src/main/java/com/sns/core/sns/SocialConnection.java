@@ -3,8 +3,6 @@ package com.sns.core.sns;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.sns.domain.User;
-
 public class SocialConnection implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -17,22 +15,19 @@ public class SocialConnection implements Serializable {
 
 	private String accessSecret;
 
-	private User user;
-
 	private SocialClient client;
 
 	private Date createdTime;
 
 	private Date lastModifiedTime;
 
-	public SocialConnection(Long id, SocialProvider provider, String accessToken, String accessSecret, User user,
+	public SocialConnection(Long id, SocialProvider provider, String accessToken, String accessSecret,
 			SocialClient client) {
 		super();
 		this.id = id;
 		this.provider = provider;
 		this.accessToken = accessToken;
 		this.accessSecret = accessSecret;
-		this.user = user;
 		this.client = client;
 		this.createdTime = new Date();
 		this.lastModifiedTime = new Date();
@@ -58,10 +53,6 @@ public class SocialConnection implements Serializable {
 		return accessSecret;
 	}
 
-	public User getUser() {
-		return user;
-	}
-
 	public SocialClient getClient() {
 		return client;
 	}
@@ -78,9 +69,10 @@ public class SocialConnection implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
+		result = prime * result + ((accessSecret == null) ? 0 : accessSecret.hashCode());
+		result = prime * result + ((accessToken == null) ? 0 : accessToken.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((provider == null) ? 0 : provider.hashCode());
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -93,17 +85,22 @@ public class SocialConnection implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		SocialConnection other = (SocialConnection) obj;
-		if (client == null) {
-			if (other.client != null)
+		if (accessSecret == null) {
+			if (other.accessSecret != null)
 				return false;
-		} else if (!client.equals(other.client))
+		} else if (!accessSecret.equals(other.accessSecret))
+			return false;
+		if (accessToken == null) {
+			if (other.accessToken != null)
+				return false;
+		} else if (!accessToken.equals(other.accessToken))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (provider != other.provider)
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
@@ -111,8 +108,8 @@ public class SocialConnection implements Serializable {
 	@Override
 	public String toString() {
 		return "SocialConnection [id=" + id + ", provider=" + provider + ", accessToken=" + accessToken
-				+ ", accessSecret=" + accessSecret + ", user=" + user + ", client=" + client + ", createdTime="
-				+ createdTime + ", lastModifiedTime=" + lastModifiedTime + "]";
+				+ ", accessSecret=" + accessSecret + ", client=" + client + ", createdTime=" + createdTime
+				+ ", lastModifiedTime=" + lastModifiedTime + "]";
 	}
 
 }

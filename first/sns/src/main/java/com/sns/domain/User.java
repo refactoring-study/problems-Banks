@@ -1,10 +1,15 @@
 package com.sns.domain;
 
+import static com.google.common.base.Preconditions.checkNotNull;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
 import com.sns.core.sns.SocialConnection;
 
 public class User implements Serializable {
@@ -19,13 +24,29 @@ public class User implements Serializable {
 	private Date createdTime;
 	private Date lastModifiedTime;
 
-	public User(String id, String name, String password, List<SocialConnection> connections) {
+	public User(String id, String name, PasswordEncoder encoder, String password) {
 		this.id = id;
 		this.name = name;
-		this.password = password;
-		this.connections = connections;
+		this.password = encoder.encodePassword(password, this.id);
+		this.connections = Lists.newArrayList();
 		this.createdTime = new Date();
 		this.lastModifiedTime = new Date();
+	}
+
+	public void addSocialConnection(final SocialConnection connection) {
+		checkNotNull(connection, "connection");
+		boolean isExistSameProviderConnection = Iterables.tryFind(this.connections, new Predicate<SocialConnection>() {
+			public boolean apply(SocialConnection input) {
+				if (connection.getProvider().equals(input.getProvider())) {
+					return true;
+				}
+				return false;
+			}
+		}).isPresent();
+		if (isExistSameProviderConnection) {
+			throw new IllegalArgumentException("already has " + connection.getProvider() + " connection");
+		}
+		this.connections.add(connection);
 	}
 
 	public String getId() {
@@ -43,7 +64,7 @@ public class User implements Serializable {
 	public List<SocialConnection> getConnections() {
 		return ImmutableList.copyOf(this.connections);
 	}
-	
+
 	public Date getLastLoginTime() {
 		return lastLoginTime;
 	}
@@ -57,9 +78,7 @@ public class User implements Serializable {
 	}
 
 	public boolean verifyCredentials(PasswordEncoder encoder, String rawPassword) {
-		if (encoder == null) {
-			throw new NullPointerException("encoder");
-		}
+		checkNotNull(encoder, "encoder");
 
 		return encoder.isPasswordValid(password, rawPassword, id);
 	}
@@ -110,7 +129,5 @@ public class User implements Serializable {
 	public String toString() {
 		return "User [id=" + id + "]";
 	}
-	
-	
 
 }

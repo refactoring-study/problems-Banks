@@ -14,12 +14,12 @@ import java.util.List;
 import com.google.common.base.Splitter;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.sns.core.sns.Post;
-import com.sns.core.sns.Posts;
+import com.sns.core.sns.SocialPost;
+import com.sns.core.sns.SocialPosts;
 
 public class MockFacebookApiImpl implements FacebookApi {
 
-	private final List<Post> dumpPosts;
+	private final List<SocialPost> dumpPosts;
 
 	public MockFacebookApiImpl() {
 		dumpPosts = Lists.newArrayList();
@@ -62,8 +62,8 @@ public class MockFacebookApiImpl implements FacebookApi {
 	}
 
 	@Override
-	public Post getPost(String postId) {
-		for (Post each : dumpPosts) {
+	public SocialPost getPost(String postId) {
+		for (SocialPost each : dumpPosts) {
 			if (each.getId().equals(postId)) {
 				return each;
 			}
@@ -73,11 +73,11 @@ public class MockFacebookApiImpl implements FacebookApi {
 	}
 
 	@Override
-	public Posts getRecentPosts(int limit) {
-		return new Posts(ImmutableList.copyOf(this.dumpPosts).subList(0, limit));
+	public SocialPosts getRecentPosts(int limit) {
+		return new SocialPosts(ImmutableList.copyOf(this.dumpPosts).subList(0, limit));
 	}
 
-	static class FacebookPost implements Post {
+	static class FacebookPost implements SocialPost {
 		private String id;
 		private String message;
 		private String messageType;

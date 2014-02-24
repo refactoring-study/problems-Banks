@@ -7,14 +7,12 @@ public class MockFacebookAuthApiImpl implements FacebookAuthApi {
 
 	@Override
 	public String buildAuthorizeUrl(AuthParams params) {
-		// TODO Auto-generated method stub
-		return null;
+		return "some-url";
 	}
 
 	@Override
 	public AccessToken fetchAccessToken(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		return new AccessToken("value", "secret");
 	}
 
 }
